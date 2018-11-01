@@ -18,10 +18,15 @@
         </pre>
         <p>Welcome to Big Jungle, an online store that just sells books.</p>
         <p>Here is a list of the books you can buy:</p>
+        <form action="." method="post">
         <ul>
             {% for book in template_data['books'] %}
-            <li>{{ book }}</li>
+            <li>
+                {{ book[1] }}
+                <button name="buy-book-{{book[0]}}" value="{{book[0]}}">buy</button>
+            </li>
             {% endfor %}
         </ul>
+        </form>
     </body>
 </html>
