@@ -22,7 +22,7 @@ def sql_query(sql):
 # For this example you can select a handler function by
 # uncommenting one of the @app.route decorators.
 
-#@app.route('/')
+@app.route('/')
 def basic_response():
     return "It works!" #example
 
@@ -30,7 +30,7 @@ def basic_response():
 def template_response():
     return render_template('home.html')
 
-@app.route('/')
+#@app.route('/')
 def template_response_with_data():
     template_data = {}
     sql = "select title from book"
