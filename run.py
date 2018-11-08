@@ -19,6 +19,15 @@ def sql_query(sql):
     db.close()
     return result
 
+
+def sql_execute(sql):
+    db = mysql.connector.connect(**config['mysql.connector'])
+    cursor = db.cursor()
+    cursor.execute(sql)
+    db.commit()
+    cursor.close()
+    db.close()
+
 # For this example you can select a handler function by
 # uncommenting one of the @app.route decorators.
 
@@ -35,7 +44,7 @@ def template_response_with_data():
     print(request.form)
     if "buy-book-2" in request.form:
         sql = "delete from book where id=2"
-        sql_query(sql)
+        sql_execute(sql)
     template_data = {}
     sql = "select id, title from book order by title"
     books = sql_query(sql)
