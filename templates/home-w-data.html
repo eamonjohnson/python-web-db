@@ -19,6 +19,9 @@
         <p>Welcome to Big Jungle, an online store that just sells books.</p>
         <p>Here is a list of the books you can buy:</p>
         <form action="." method="post">
+        {% if template_data['books']|length == 0 %}
+        <p style="color: red;">All books are sold out!</p>
+        {% else %}
         <ul>
             {% for book in template_data['books'] %}
             <li>
@@ -27,6 +30,7 @@
             </li>
             {% endfor %}
         </ul>
+        {% endif %}
         </form>
     </body>
 </html>
