@@ -23,7 +23,7 @@
             {% for book in template_data['books'] %}
             <li>
                 {{ book[1] }}
-                <button name="buy-book-{{book[0]}}" value="{{book[0]}}">buy</button>
+                <button name="buy-book" value="{{book[0]}}">buy</button>
             </li>
             {% endfor %}
         </ul>

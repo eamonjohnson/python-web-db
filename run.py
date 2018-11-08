@@ -42,8 +42,9 @@ def template_response():
 @app.route('/', methods=['GET', 'POST'])
 def template_response_with_data():
     print(request.form)
-    if "buy-book-2" in request.form:
-        sql = "delete from book where id=2"
+    if "buy-book" in request.form:
+        book_id = int(request.form["buy-book"])
+        sql = "delete from book where id={book_id}".format(book_id=book_id)
         sql_execute(sql)
     template_data = {}
     sql = "select id, title from book order by title"
